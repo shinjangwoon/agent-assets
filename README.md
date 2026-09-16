@@ -5,10 +5,12 @@
 ## 구조
 
 ```
-templates/    플랫폼 무관 틀 — 이슈 본문 형식, 태스크 스키마 정의 방식, 에이전트/스쿼드 명세 틀
-skills/       플랫폼 무관 스킬 (Agent Skills 표준: frontmatter + SKILL.md + reference/ + examples/)
-              Claude Code · Codex · Multica import 모두 읽을 수 있다
-multica/      Multica 전용 — API 형식, 검증된 제약, (필요 시) Multica 에서만 쓰는 스킬
+templates/         플랫폼 무관 틀 — 이슈 본문 형식, 태스크 스키마 정의 방식, 에이전트/스쿼드 명세 틀
+multica/           Multica 가 보는 폴더
+  docs/              API 형식, 검증된 제약
+  skills/            skill import 대상. Agent Skills 표준 형식(frontmatter + SKILL.md + reference/ + examples/)
+                     형식이 표준이라 다른 플랫폼에서도 이 경로를 가리켜 쓸 수 있다
+<platform>/        다른 플랫폼이 생기면 같은 방식으로 옆에 둔다
 ```
 
 ## 원칙
