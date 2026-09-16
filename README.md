@@ -4,24 +4,13 @@
 
 ## 구조
 
-[Agent Skills 개방 표준](https://agentskills.io/specification)을 따른다. `skills/` 아래 각 폴더가 스킬 하나이고, Claude Code · Codex · Cursor · Gemini CLI · Multica 가 같은 파일을 그대로 쓴다.
-
 ```
-skills/            스킬. 폴더마다 SKILL.md (+ reference/ examples/ scripts/)
-templates/         스킬이 아닌 틀 — 이슈 본문 형식, 태스크 스키마 정의 방식, 에이전트/스쿼드 명세 틀
-docs/<platform>/   플랫폼별로 알아낸 사실 (API 형식, 제약)
+templates/         틀 — 이슈 본문 형식, 태스크 스키마 정의 방식, 에이전트/스쿼드 명세 틀
+docs/<platform>/   플랫폼별로 알아낸 사실 (API 형식, 제약, 구성 기록)
 AGENTS.md          항상 적용되는 규칙. CLAUDE.md 는 이 파일의 심볼릭 링크
 ```
 
-## 설치
-
-```bash
-npx skills add <owner>/agent-assets            # 설치된 에이전트 자동 감지
-npx skills add <owner>/agent-assets -g          # 전역
-npx skills add <owner>/agent-assets --list      # 목록만
-```
-
-Multica 는 `multica skill import --url github.com/<owner>/agent-assets/tree/main/skills/<name>` 으로 스킬 단위 import.
+스킬은 두지 않는다. 지금은 고객이 하나라 방법과 값을 나눌 이유가 없어, 실행 규칙은 각 플랫폼의 스킬(Multica `nrc-task-schema` 등)에 통째로 둔다. 두 번째 고객이 생겨 방법을 재사용해야 할 때 `skills/` 를 다시 만든다. 그때는 [Agent Skills 표준](https://agentskills.io/specification)을 따른다.
 
 ## 원칙
 
