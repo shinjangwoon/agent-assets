@@ -1,0 +1,6 @@
+{
+  "orgs": {"A연": "A연구원", "B연": "B연구원"},
+  "always_labels": ["<항상 라벨>"],
+  "kind_labels": {"internal": "<내부 라벨>", "simple": "<단순 라벨>"},
+  "hierarchy_labels": ["상위업무", "하위업무"]
+}
