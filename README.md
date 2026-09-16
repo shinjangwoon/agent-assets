@@ -4,13 +4,30 @@
 
 ## 구조
 
+[Agent Skills 개방 표준](https://agentskills.io/specification)을 따른다.
+
 ```
-templates/         틀 — 이슈 본문 형식, 태스크 스키마 정의 방식, 에이전트/스쿼드 명세 틀
-docs/<platform>/   플랫폼별로 알아낸 사실 (API 형식, 제약, 구성 기록)
-AGENTS.md          항상 적용되는 규칙. CLAUDE.md 는 이 파일의 심볼릭 링크
+skills/            스킬. 폴더마다 SKILL.md + references/ scripts/ assets/
+                   고객 정보 없음 — 절차·판단 기준·본문 형식·검증 스크립트만
+templates/         스킬이 아닌 틀 — 에이전트/스쿼드 명세, 스키마 정의 방식
+docs/<platform>/   플랫폼별로 알아낸 사실
+AGENTS.md          항상 적용되는 규칙. CLAUDE.md 는 심볼릭 링크
 ```
 
-스킬은 두지 않는다. 지금은 고객이 하나라 방법과 값을 나눌 이유가 없어, 실행 규칙은 각 플랫폼의 스킬(Multica `nrc-task-schema` 등)에 통째로 둔다. 두 번째 고객이 생겨 방법을 재사용해야 할 때 `skills/` 를 다시 만든다. 그때는 [Agent Skills 표준](https://agentskills.io/specification)을 따른다.
+## 고객 값은 어디에
+
+기관·라벨·담당자 같은 고객 고유 값은 **여기 두지 않는다.** 스킬을 배정받은 에이전트의 지침(플랫폼 안)에 둔다.
+그래서 이 저장소는 공개여도 되고, 플랫폼에서 `refresh` 해도 고객 값이 지워지지 않는다.
+
+## 설치
+
+```bash
+npx skills add shinjangwoon/agent-assets              # 설치된 에이전트 자동 감지
+npx skills add shinjangwoon/agent-assets --list
+```
+
+Multica: `multica skill import --url github.com/shinjangwoon/agent-assets/tree/master/skills/<name>`.
+수정 후 `git push` → `multica skill refresh <id>`.
 
 ## 원칙
 

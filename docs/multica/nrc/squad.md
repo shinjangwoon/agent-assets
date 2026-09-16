@@ -24,6 +24,10 @@ NRC 프로젝트 요청의 단일 채팅 진입점. 리더가 분류해 위임�
 - 담당자들에게 알려야 함 → 경사연 담당자
 
 ## 스킬
-- `nrc-task-schema` — Multica 안에서만 관리. 절차·기관·라벨·상태·담당자·본문 형식·예시·점검 목록 전부 포함. 6개 에이전트 공통 배정.
+- `task-creator` — 이 저장소 `skills/task-creator` 에서 import. 절차·판단·본문 형식·검증 스크립트. 6개 에이전트 공통. git 수정 → push → `skill refresh`.
 - `msp-safety-baseline` — 기존 공용 안전 스킬.
-- 런타임: 6개 모두 `sjw-kirocrew` (Kiro). Kiro 는 thinking_level 을 받지 않으므로 비워둔다.
+- **NRC 고유 값(기관 18·라벨·담당자·상태·필수항목·schema.json)은 `NRC SR 태스크 생성`·`NRC 일반업무 태스크 생성` 에이전트 지침에** 있다. 기관 추가 시 이 둘을 고친다.
+- 런타임: 6개 모두 Kiro. thinking_level 은 비운다.
+
+## ⚠️ refresh 주의
+`skill refresh` 는 SKILL.md 포함 폴더 전체를 git 원본으로 덮어쓴다. 그래서 SKILL.md 에 고객 값을 넣으면 안 된다(검증됨).
